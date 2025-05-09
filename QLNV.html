@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý nhân viên</title>
+    <link rel="stylesheet" href="./QLNV.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <img class="header__logo" src="./logo.png" alt="Logo" />
+      <div class="header__menu">
+        <div class="header__item">
+          Khách hàng <i class="bx bxs-down-arrow"></i>
+        </div>
+        <div class="header__item">Hỗ trợ <i class="bx bxs-down-arrow"></i></div>
+        <div class="header__item">
+          Báo cáo <i class="bx bxs-down-arrow"></i>
+        </div>
+        <div class="header__item">Dự án <i class="bx bxs-down-arrow"></i></div>
+        <div class="header__item">
+          Tin tức <i class="bx bxs-down-arrow"></i>
+        </div>
+      </div>
+      <div class="header__admin">
+        <i class="bx bxs-bell"></i>
+        <i class="bx bxs-brightness"></i>
+        <div class="header__user">
+          <span class="header__user-avatar">L</span>
+        </div>
+        <span class="header__user-name">Admin</span>
+      </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar__title">
+        <i class="bx bx-left-arrow-alt"></i>
+        <span>Danh sách nhân viên</span>
+      </div>
+      <div class="navbar__actions">
+        <button class="btn">Thêm</button>
+        <button class="btn">Cập nhật</button>
+        <button class="btn">Tìm</button>
+        <button class="btn">Xóa</button>
+        <button class="btn">Thoát</button>
+      </div>
+    </nav>
+    <hr style="border: 1px solid rgb(156, 150, 150); width: 100%" />
+
+    <!-- Main Container -->
+    <main class="container">
+      <div class="container__title">Thông tin nhân viên</div>
+      <div class="container__form">
+        <div class="form__row">
+          <div class="form__field">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" id="username" />
+          </div>
+          <div class="form__field">
+            <label for="dob">Ngày sinh</label>
+            <input type="date" id="dob" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__field">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" />
+          </div>
+          <div class="form__field">
+            <label for="id">Mã số cá nhân</label>
+            <input type="text" id="id" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__field">
+            <label for="fullname">Họ và Tên</label>
+            <input type="text" id="fullname" />
+          </div>
+          <div class="form__field">
+            <label for="address">Địa chỉ</label>
+            <input type="text" id="address" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__field">
+            <label for="joining">Ngày vào công ty</label>
+            <input type="date" id="joining" />
+          </div>
+          <div class="form__field">
+            <label for="email">Email</label>
+            <input type="email" id="email" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__field">
+            <label for="cccd">Số CCCD</label>
+            <input type="text" id="cccd" />
+          </div>
+          <div class="form__field">
+            <label for="phone">Điện thoại</label>
+            <input type="text" id="phone" />
+          </div>
+        </div>
+        <div class="form__row form__row--full">
+          <label for="description">Mô tả</label>
+          <textarea id="description" placeholder="Nhập mô tả"></textarea>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
