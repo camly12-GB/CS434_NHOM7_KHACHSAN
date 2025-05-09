@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài khoản cá nhân</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quản Lý Tài Khoản Cá Nhân</h1>
+
+        <nav class="tabs">
+            <a href="#" class="tab active" data-tab="profile">Xem thông tin cá nhân</a>
+            <a href="#" class="tab" data-tab="edit">Chỉnh sửa thông tin</a>
+            <a href="#" class="tab" data-tab="password">Đổi mật khẩu</a>
+        </nav>
+
+        <div class="profile-content">
+            <div class="avatar">
+                <img id="avatar-image" src="white.png" alt="Avatar" width="100" height="100">
+                <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                <label for="avatar-upload" class="upload-button">
+                    <i class="fa-solid fa-camera"></i>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="fullname">Họ và tên</label>
+                <input type="text" id="fullname" value="Long Lê" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="tax-code">Mã số thuế cá nhân</label>
+                <input type="text" id="tax-code" placeholder="Ví dụ: 1234567890 hoặc 1234567890-123" readonly>
+                <p class="instruction">MST gồm 10 hoặc 13 chữ số</p>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Số điện thoại chính</label>
+                <input type="tel" id="phone" value="0123456***" readonly>
+                <a href="#" class="add-phone">+ Thêm số điện thoại</a>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="lehbaolong@dtu.edu.vn" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Địa chỉ</label>
+                <input type="text" id="address" value="Số 03, Quang Trung, Thạch Thang, Hải Châu, Đà Nẵng"
+                    readonly>
+            </div>
+        </div>
+
+        <div class="edit-content" style="display: none;">
+            <!-- Form chỉnh sửa thông tin -->
+            <form>
+                <div class="form-group">
+                    <label for="edit-fullname">Họ và tên</label>
+                    <input type="text" id="edit-fullname" value="Long Lê">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-tax-code">Mã số thuế cá nhân</label>
+                    <input type="text" id="edit-tax-code" placeholder="Ví dụ: 1234567890 hoặc 1234567890-123">
+                    <p class="instruction">MST gồm 10 hoặc 13 chữ số</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-phone">Số điện thoại chính</label>
+                    <input type="tel" id="edit-phone" value="0123456***">
+                    <a href="#" class="add-phone">+ Thêm số điện thoại</a>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-email">Email</label>
+                    <input type="email" id="edit-email" value="lehbaolong@dtu.edu.vn">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-address">Địa chỉ</label>
+                    <input type="text" id="edit-address" value="Số 03, Quang Trung, Thạch Thang, Hải Châu, Đà Nẵng">
+                </div>
+
+                <button type="submit" class="save-button">Lưu thay đổi</button>
+            </form>
+        </div>
+
+        <div class="password-content" style="display: none;">
+            <!-- Form đổi mật khẩu -->
+            <form>
+                <div class="form-group">
+                    <label for="old-password">Mật khẩu cũ</label>
+                    <input type="password" id="old-password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password">Mật khẩu mới</label>
+                    <input type="password" id="new-password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu mới</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+
+                <button type="submit" class="save-button">Đổi mật khẩu</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
