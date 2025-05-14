@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản lý Đặt Phòng</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-list {
+            margin-top: 20px;
+        }
+        .booking-item {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h1>Quản lý Đặt Phòng</h1>
+        
+        <div id="booking-list" class="booking-list">
+            <!-- Danh sách booking sẽ được hiển thị ở đây -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('/api/bookings');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const bookingList = document.getElementById('booking-list');
+                    
+                    if (data.bookings.length === 0) {
+                        bookingList.innerHTML = '<p>Không có đặt phòng nào.</p>';
+                        return;
+                    }
+                    
+                    let html = '';
+                    data.bookings.forEach(booking => {
+                        html += `
+                            <div class="booking-item">
+                                <h3>Mã: ${booking._id}</h3>
+                                <p>Loại phòng: ${booking.roomType}</p>
+                                <p>Địa điểm: ${booking.location}</p>
+                                <p>Số ngày: ${booking.days}</p>
+                                <p>Ngày: ${booking.dateRange}</p>
+                                <p>Giá: $${booking.amount} USD</p>
+                                <p>Ngày đặt: ${new Date(booking.createdAt).toLocaleString()}</p>
+                            </div>
+                        `;
+                    });
+                    
+                    bookingList.innerHTML = html;
+                } else {
+                    alert('Lỗi khi lấy danh sách: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Lỗi kết nối server');
+            }
+        });
+    </script>
+</body>
+</html>
