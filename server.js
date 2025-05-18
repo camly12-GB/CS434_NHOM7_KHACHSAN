@@ -30,25 +30,25 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/book', async (req, res) => {
-  console.log('Request body:', req.body); 
-  
+  console.log('Request body:', req.body);
+
   try {
     const { days, dateRange } = req.body;
-    
+
     if (!days || isNaN(days)) {
       return res.status(400).json({
         success: false,
         message: 'Số ngày không hợp lệ'
       });
     }
-    
+
     if (!dateRange || !dateRange.includes('to')) {
       return res.status(400).json({
         success: false,
         message: 'Khoảng thời gian không hợp lệ'
       });
     }
-    
+
     const newBooking = new Booking({
       roomType: 'Phòng gia đình',
       location: 'Gaila, Sri Lanka',
@@ -57,16 +57,16 @@ app.post('/api/book', async (req, res) => {
       amount: 400,
       status: 'pending'
     });
-    
+
     const savedBooking = await newBooking.save();
     console.log('Booking saved:', savedBooking);
-    
+
     return res.json({
       success: true,
       message: 'Đặt phòng thành công',
       booking: savedBooking
     });
-    
+
   } catch (error) {
     console.error('❌ Error saving booking:', error);
     return res.status(500).json({
